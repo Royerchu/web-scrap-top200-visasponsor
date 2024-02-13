@@ -8,3 +8,6 @@ Using BeautifulSoup and requests, the package from Python, to get the dataframe 
 After getting this table with 200 rows, I am planning to make further analysis based on this result.
 
 Resource: myvisajobs.com
+
+## Problem-Solving:
+1. Found that one of the urls return error due to the error message of  **page not exist or remove**
