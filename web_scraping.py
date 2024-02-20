@@ -72,42 +72,14 @@ for index,u in enumerate(['','-2','-3','-4']):
         if jobs is None:
             collect_jobs.append("Cannot find the location")
 
-#print(len(collect_location))
-#     soup2=get_sponsor_url(url)
-
-    
-#     for link in soup2.find_all('a'):
-#         new_link=str(link.get('href'))
-#         if new_link.startswith("/Visa-Sponsor"):
-#             new_link2="https://www.myvisajobs.com"+new_link
-#             #urls.append(new_link2)
-
-#             page_uni = requests.get(new_link2)
-#             soup_uni = BeautifulSoup(page_uni.text, 'html.parser')
-
-#             for index, td in enumerate(soup_uni.find_all('td')):
-                
-#                 if str(td.text) == "Hot H1B Visa Jobs:":
-#                     location = soup_uni.find_all('td')[index+1]
-#                     job_list.append(str(location.text))
-#                     #print(str(location.text))
 df2["Hot H1B Visa Jobs"]=collect_jobs
 
 
 print(df2)
 
-df_forRoyer=df2.copy()
-df_forRoyer["Hot H1B Visa Jobs"]=0
-for index,row in df2.iterrows():
-    if index==1:
-        new_item=[]
-        for item in row["Hot H1B Visa Jobs"].split(", "):
-            if 'Manager' or 'Computer' in item:
-                #new_item=', '.join(item)
-    df_forRoyer.loc[index,"Hot H1B Visa Jobs"]=str(new_item)
- 
-        
-print(df_forRoyer)
+#Create the dataframe for customization
+df_cus=df2.copy()
 
-
-#df2.to_csv(r"C:\Users\royer\OneDrive\Desktop\df2.csv",index=False)
+x=input("what is the position")
+filtered_df = df_cus[df_cus["Hot H1B Visa Jobs"].str.contains(x)]
+print(filtered_df)
