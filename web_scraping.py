@@ -80,6 +80,7 @@ print(df2)
 #Create the dataframe for customization
 df_cus=df2.copy()
 
-x=input("what is the position")
+pos=input("what is the position")
+pos=pos.title()
 filtered_df = df_cus[df_cus["Hot H1B Visa Jobs"].str.contains(x)]
 print(filtered_df)
